@@ -1,4 +1,7 @@
 project.manifest = manifest.xml
 
-base.sourcePath = source
+base.sourcePath = source;colors/default
 base.resourcePath = resources
+
+# 8 colour screen: own colour constants (see colors/)
+fr55.sourcePath = source;colors/8color
