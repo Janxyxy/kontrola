@@ -3,9 +3,10 @@
 Race mode for orienteering on the Forerunner 955. It records splits per control and has no
 map, position or bearing on screen, so it's legal to wear in races.
 
-![screens](docs/screens/all.png)
+![screens (v0.2.0)](docs/screens/v0.2.0/all.png)
 
-Screenshots come from `demo.jungle` (the real views fed with fake data):
+Screenshots for every version are kept in `docs/screens/vX.Y.Z/`; old ones are never deleted.
+They come from `demo.jungle` (the real views fed with fake data):
 `monkeyc -f demo.jungle -o bin/Demo_fr955.prg -y <key> -d fr955`, then run it in the simulator.
 
 ## Buttons
