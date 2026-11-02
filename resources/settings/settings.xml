@@ -1,0 +1,5 @@
+<settings>
+    <setting propertyKey="@Properties.numControls" title="@Strings.NumControlsTitle" prompt="@Strings.NumControlsPrompt">
+        <settingConfig type="numeric" min="0" max="60"/>
+    </setting>
+</settings>

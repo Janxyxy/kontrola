@@ -1,0 +1,5 @@
+# Screenshot build: real views, fake race data. Not for the watch.
+project.manifest = demo/manifest.xml
+
+base.sourcePath = source;demo
+base.resourcePath = resources
