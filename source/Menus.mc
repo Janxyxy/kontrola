@@ -20,6 +20,11 @@ class PauseMenuDelegate extends WatchUi.Menu2InputDelegate {
         } else if (id == :save) {
             _race.save();
             WatchUi.popView(WatchUi.SLIDE_DOWN);
+        } else if (id == :undo) {
+            if (_race.undoPunch()) {
+                vibrate(300);
+            }
+            WatchUi.popView(WatchUi.SLIDE_DOWN);
         } else if (id == :discard) {
             WatchUi.pushView(new WatchUi.Confirmation("Discard race?"),
                 new DiscardConfirmDelegate(_race), WatchUi.SLIDE_IMMEDIATE);
@@ -28,6 +33,24 @@ class PauseMenuDelegate extends WatchUi.Menu2InputDelegate {
 
     // BACK closes the menu and stays paused
     function onBack() as Void {
+        WatchUi.popView(WatchUi.SLIDE_DOWN);
+    }
+}
+
+// Hold UP while racing. Recording continues underneath.
+class RaceMenuDelegate extends WatchUi.Menu2InputDelegate {
+
+    private var _race as RaceSession;
+
+    function initialize(race as RaceSession) {
+        Menu2InputDelegate.initialize();
+        _race = race;
+    }
+
+    function onSelect(item as WatchUi.MenuItem) as Void {
+        if (item.getId() == :undo && _race.undoPunch()) {
+            vibrate(300);
+        }
         WatchUi.popView(WatchUi.SLIDE_DOWN);
     }
 }

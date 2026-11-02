@@ -30,6 +30,7 @@ class RaceSession {
     private var _controlsField as FitContributor.Field?;
     private var _legStartTime as Number = 0;     // timerTime (ms) at leg start
     private var _legStartDist as Float = 0.0;    // elapsedDistance (m) at leg start
+    private var _prevStartDists as Array<Float> = [];  // leg start distances, for undo
 
     function initialize() {
         loadSettings();
@@ -68,6 +69,7 @@ class RaceSession {
         splits = [];
         _legStartTime = 0;
         _legStartDist = 0.0;
+        _prevStartDists = [];
         state = STATE_RUNNING;
     }
 
@@ -100,8 +102,31 @@ class RaceSession {
         legField.setData(punched + 1);
         controlsField.setData(punched);
         _legStartTime = now;
+        _prevStartDists.add(_legStartDist);
         _legStartDist = distanceM();
         lastPunchAt = System.getTimer();
+    }
+
+    // Take back the last punch: the current leg continues from the previous control.
+    // The lap already in the FIT file can't be removed, but the next lap gets the
+    // same "leg" number, so laps sharing a leg number belong to one leg.
+    function undoPunch() as Boolean {
+        var legField = _legField;
+        var controlsField = _controlsField;
+        if (punched == 0 || legField == null || controlsField == null
+                || (state != STATE_RUNNING && state != STATE_PAUSED)) {
+            return false;
+        }
+        var last = splits[splits.size() - 1];
+        splits = splits.slice(0, splits.size() - 1);
+        _legStartTime -= last;
+        _legStartDist = _prevStartDists[_prevStartDists.size() - 1];
+        _prevStartDists = _prevStartDists.slice(0, _prevStartDists.size() - 1);
+        punched--;
+        legField.setData(punched + 1);
+        controlsField.setData(punched);
+        lastPunchAt = -100000;
+        return true;
     }
 
     function save() as Void {

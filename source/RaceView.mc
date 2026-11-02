@@ -167,6 +167,7 @@ class RaceView extends WatchUi.View {
             Graphics.COLOR_WHITE);
         var next = _race.targetLabel();
         text(dc, _cx, y(0.76), Graphics.FONT_TINY, next.equals("F") ? "to finish" : "next " + next, MUTED);
+        text(dc, _cx, y(0.87), Graphics.FONT_XTINY, "hold UP to undo", DIM);
     }
 
     private function drawDone(dc as Graphics.Dc) as Void {

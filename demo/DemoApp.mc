@@ -12,6 +12,7 @@ class DemoApp extends OrienteeringApp {
     private var _view as RaceView?;
     private var _timer as Timer.Timer;
     private var _step as Number = 0;
+    private var _menuShown as Boolean = false;
 
     function initialize() {
         OrienteeringApp.initialize();
@@ -32,8 +33,18 @@ class DemoApp extends OrienteeringApp {
     }
 
     function next() as Void {
-        _step = (_step + 1) % 8;
+        if (_menuShown) {
+            WatchUi.popView(WatchUi.SLIDE_IMMEDIATE);
+            _menuShown = false;
+        }
+        _step = (_step + 1) % 9;
         apply();
+        if (_step == 8) {
+            var menu = new WatchUi.Menu2({:title => "Race"});
+            menu.addItem(undoItem(_demo));
+            WatchUi.pushView(menu, new WatchUi.Menu2InputDelegate(), WatchUi.SLIDE_IMMEDIATE);
+            _menuShown = true;
+        }
         WatchUi.requestUpdate();
     }
 
@@ -54,6 +65,7 @@ class DemoApp extends OrienteeringApp {
             case 3: view.page = 2; break;
             case 4: d.lastPunchAt = System.getTimer(); break;
             case 5: d.state = STATE_PAUSED; break;
+            case 8: break;
             case 7: d.punched = 14; d.fakeLeg = 31000; break;
             case 6: d.state = STATE_DONE; d.saved = true; d.punched = 14; d.fakeTimer = 52 * 60000 + 38000; break;
         }

@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.3.0
+- Undo last punch: hold UP while racing (race menu, timer keeps running) or from the pause menu
+- Split popup shows "hold UP to undo"
+- FIT: after an undo, laps with the same `leg` number make up one leg
+
 ## 0.2.0
 - New UI built on course symbols: start triangle, control circles, finish double circle (magenta)
 - Progress ring around the edge fills as controls are punched; turns yellow when paused

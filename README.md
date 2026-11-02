@@ -3,7 +3,7 @@
 Race mode for orienteering on the Forerunner 955. It records splits per control and has no
 map, position or bearing on screen, so it's legal to wear in races.
 
-![screens (v0.2.0)](docs/screens/v0.2.0/all.png)
+![screens (v0.3.0)](docs/screens/v0.3.0/all.png)
 
 Screenshots for every version are kept in `docs/screens/vX.Y.Z/`; old ones are never deleted.
 They come from `demo.jungle` (the real views fed with fake data):
@@ -16,9 +16,12 @@ They come from `demo.jungle` (the real views fed with fake data):
 | START | start | pause + menu | menu (Resume / Save / Discard) |
 | BACK | exit | **punch control** (lap) | - |
 | UP / DOWN | - | switch screens | switch screens |
-| hold UP | settings (number of controls) | - | - |
+| hold UP | settings (number of controls) | race menu: **undo punch** | - |
 
 Touch is ignored on purpose.
+
+**Undo punch**: hold UP while racing (timer keeps running), or use the pause menu. The current
+leg then continues from the previous control, as if the wrong punch never happened.
 
 ## Screens
 
@@ -35,7 +38,8 @@ After each punch the watch vibrates and shows that leg's split for 4 s.
 
 Recorded as Running / Trail with the name "Orienteering". Each lap is one leg, with these
 extra fields:
-- `leg` (lap): leg number, 1..N+1 (the last leg is control N to the finish)
+- `leg` (lap): leg number, 1..N+1 (the last leg is control N to the finish).
+  After an undo, two laps share the same `leg` number; add them together to get the real leg.
 - `controls` (session): number of controls punched
 
 ## Build
@@ -50,5 +54,4 @@ Number of controls can also be set from Garmin Connect app settings (0 = unknown
 ## Next ideas
 
 - configurable data screens (layout + field per slot via settings)
-- undo last punch
 - training mode (load course, bearing/distance, auto-punch)
