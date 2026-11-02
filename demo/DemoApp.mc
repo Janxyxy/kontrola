@@ -32,7 +32,7 @@ class DemoApp extends OrienteeringApp {
     }
 
     function next() as Void {
-        _step = (_step + 1) % 7;
+        _step = (_step + 1) % 8;
         apply();
         WatchUi.requestUpdate();
     }
@@ -54,7 +54,8 @@ class DemoApp extends OrienteeringApp {
             case 3: view.page = 2; break;
             case 4: d.lastPunchAt = System.getTimer(); break;
             case 5: d.state = STATE_PAUSED; break;
-            case 6: d.state = STATE_DONE; d.punched = 14; d.fakeTimer = 52 * 60000 + 38000; break;
+            case 7: d.punched = 14; d.fakeLeg = 31000; break;
+            case 6: d.state = STATE_DONE; d.saved = true; d.punched = 14; d.fakeTimer = 52 * 60000 + 38000; break;
         }
     }
 }

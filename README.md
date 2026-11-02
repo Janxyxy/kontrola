@@ -21,9 +21,12 @@ Touch is ignored on purpose.
 
 ## Screens
 
-1. **Main**: next control (`C 7/14`, or `F` after the last one), leg time, total time
-2. **Body**: HR, leg distance, total distance
+1. **Main**: next control (circle with number, `/14`; finish symbol after the last one), leg time, total time
+2. **Body**: HR coloured by zone, leg distance, total distance
 3. **Splits**: last 5 leg times
+
+The magenta ring around the edge shows course progress (needs the number of controls set).
+It turns yellow while paused.
 
 After each punch the watch vibrates and shows that leg's split for 4 s.
 

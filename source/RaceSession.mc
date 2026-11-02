@@ -5,6 +5,7 @@ import Toybox.FitContributor;
 import Toybox.Lang;
 import Toybox.Position;
 import Toybox.System;
+import Toybox.UserProfile;
 
 enum RaceState {
     STATE_IDLE,
@@ -21,6 +22,7 @@ class RaceSession {
     var punched as Number = 0;              // controls punched so far
     var splits as Array<Number> = [];       // leg times in ms
     var lastPunchAt as Number = -100000;    // System.getTimer() of last punch
+    var saved as Boolean = false;
     var gpsAccuracy as Position.Quality = Position.QUALITY_NOT_AVAILABLE;
 
     private var _session as ActivityRecording.Session?;
@@ -111,6 +113,7 @@ class RaceSession {
         }
         _session.save();
         _session = null;
+        saved = true;
         state = STATE_DONE;
     }
 
@@ -147,6 +150,20 @@ class RaceSession {
     function heartRate() as Number? {
         var info = Activity.getActivityInfo();
         return info != null ? info.currentHeartRate : null;
+    }
+
+    // 1..5 from the user's running HR zones, 0 below zone 1
+    function heartRateZone(hr as Number) as Number {
+        var zones = UserProfile.getHeartRateZones(UserProfile.HR_ZONE_SPORT_RUNNING);
+        if (zones == null || zones.size() < 6 || hr < zones[0]) {
+            return 0;
+        }
+        for (var i = 1; i < 6; i++) {
+            if (hr <= zones[i]) {
+                return i;
+            }
+        }
+        return 5;
     }
 
     function legMs() as Number {
