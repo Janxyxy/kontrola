@@ -51,10 +51,18 @@ leg then continues from the previous control, as if the wrong punch never happen
 The magenta ring around the edge shows course progress. It turns yellow while paused.
 After each punch the watch shows that leg's split for 4 s.
 
-### Settings
+### Before the race
 
-**Number of controls**: hold UP before the start, or set it in the Garmin Connect app
-(0 = unknown). The progress ring needs it.
+The only setup is the **number of controls** (no course is loaded, that keeps it race legal):
+
+- **On the watch**: open Kontrola, **hold UP** on the start screen → Settings → Controls,
+  pick the number, then press START.
+- **In Garmin Connect**: device → Activities & Apps → Kontrola → Settings → Number of controls.
+
+It's remembered for the next race, so check it on the start screen ("14 controls").
+It drives the `7/14` count, the progress ring and the finish symbol. With 0 ("-", unknown)
+punches and splits are still recorded, just without the ring and the `/14`.
+It can't be changed once the timer runs (hold UP is then the race menu).
 
 ## Supported watches
 
