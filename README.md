@@ -1,5 +1,13 @@
 # Orienteering (Connect IQ watch app)
 
+![version](https://img.shields.io/badge/version-0.3.0-FF00FF)
+![status](https://img.shields.io/badge/status-testing-yellow)
+![platform](https://img.shields.io/badge/Connect_IQ-watch_app-007CC3?logo=garmin&logoColor=white)
+![device](https://img.shields.io/badge/device-Forerunner_955-000000?logo=garmin&logoColor=white)
+![language](https://img.shields.io/badge/language-Monkey_C-orange)
+![sdk](https://img.shields.io/badge/SDK-9.1.0-blue)
+![IOF](https://img.shields.io/badge/race_mode-IOF_legal-brightgreen)
+
 Race mode for orienteering on the Forerunner 955. It records splits per control and has no
 map, position or bearing on screen, so it's legal to wear in races.
 
