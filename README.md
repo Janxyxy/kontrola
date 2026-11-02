@@ -1,6 +1,8 @@
-# Orienteering (Connect IQ watch app)
+# Kontrola
 
-![version](https://img.shields.io/badge/version-0.3.0-FF00FF)
+Orienteering watch app for Garmin (Connect IQ).
+
+![version](https://img.shields.io/badge/version-0.3.1-FF00FF)
 ![status](https://img.shields.io/badge/status-testing-yellow)
 ![platform](https://img.shields.io/badge/Connect_IQ-watch_app-007CC3?logo=garmin&logoColor=white)
 ![device](https://img.shields.io/badge/device-Forerunner_955-000000?logo=garmin&logoColor=white)
@@ -44,7 +46,7 @@ After each punch the watch vibrates and shows that leg's split for 4 s.
 
 ## FIT output
 
-Recorded as Running / Trail with the name "Orienteering". Each lap is one leg, with these
+Recorded as Running / Trail with the activity name "Orienteering". Each lap is one leg, with these
 extra fields:
 - `leg` (lap): leg number, 1..N+1 (the last leg is control N to the finish).
   After an undo, two laps share the same `leg` number; add them together to get the real leg.
@@ -53,7 +55,7 @@ extra fields:
 ## Build
 
 ```powershell
-./build.ps1        # build bin/Orienteering_fr955.prg
+./build.ps1        # build bin/Kontrola_fr955.prg
 ./build.ps1 -Run   # build + run in simulator
 ```
 

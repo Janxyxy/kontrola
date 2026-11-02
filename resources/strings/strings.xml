@@ -1,5 +1,5 @@
 <strings>
-    <string id="AppName">Orienteering</string>
+    <string id="AppName">Kontrola</string>
     <string id="NumControlsTitle">Number of controls</string>
     <string id="NumControlsPrompt">0 = unknown</string>
 </strings>

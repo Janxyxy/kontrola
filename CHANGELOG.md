@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.3.1
+- Renamed the app to Kontrola (same app ID, so it updates in place on the watch)
+
 ## 0.3.0
 - Undo last punch: hold UP while racing (race menu, timer keeps running) or from the pause menu
 - Split popup shows "hold UP to undo"

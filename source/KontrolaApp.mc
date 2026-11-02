@@ -3,7 +3,7 @@ import Toybox.Lang;
 import Toybox.Position;
 import Toybox.WatchUi;
 
-class OrienteeringApp extends Application.AppBase {
+class KontrolaApp extends Application.AppBase {
 
     var race as RaceSession;
 
@@ -39,6 +39,6 @@ class OrienteeringApp extends Application.AppBase {
     }
 }
 
-function getApp() as OrienteeringApp {
-    return Application.getApp() as OrienteeringApp;
+function getApp() as KontrolaApp {
+    return Application.getApp() as KontrolaApp;
 }

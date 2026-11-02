@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <iq:manifest xmlns:iq="http://www.garmin.com/xml/connectiq" version="3">
-    <iq:application entry="OrienteeringApp"
+    <iq:application entry="KontrolaApp"
                     id="aa5a2b065e1b4ac09dfbe5432d953dbb"
                     launcherIcon="@Drawables.LauncherIcon"
                     minApiLevel="3.2.0"

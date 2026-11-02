@@ -6,7 +6,7 @@ import Toybox.Timer;
 import Toybox.WatchUi;
 
 // Cycles through every race screen with fake data, for screenshots.
-class DemoApp extends OrienteeringApp {
+class DemoApp extends KontrolaApp {
 
     private var _demo as DemoRace;
     private var _view as RaceView?;
@@ -15,7 +15,7 @@ class DemoApp extends OrienteeringApp {
     private var _menuShown as Boolean = false;
 
     function initialize() {
-        OrienteeringApp.initialize();
+        KontrolaApp.initialize();
         _demo = new DemoRace();
         race = _demo;
         _timer = new Timer.Timer();
