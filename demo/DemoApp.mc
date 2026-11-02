@@ -2,16 +2,21 @@ import Toybox.Application;
 import Toybox.Lang;
 import Toybox.Position;
 import Toybox.System;
+import Toybox.Time;
 import Toybox.Timer;
 import Toybox.WatchUi;
 
 // Cycles through every race screen with fake data, for screenshots.
+// The step comes from the wall clock (4 s each, 9 steps), so tools/screens.py
+// knows which screen is up without watching the display.
+const STEP_SECONDS = 4;
+const STEPS = 9;
 class DemoApp extends KontrolaApp {
 
     private var _demo as DemoRace;
     private var _view as RaceView?;
     private var _timer as Timer.Timer;
-    private var _step as Number = 0;
+    private var _step as Number = -1;
     private var _menuShown as Boolean = false;
 
     function initialize() {
@@ -28,16 +33,24 @@ class DemoApp extends KontrolaApp {
         var view = new RaceView(_demo);
         _view = view;
         apply();
-        _timer.start(method(:next), 4000, true);
+        _timer.start(method(:tick), 250, true);
         return [view, new WatchUi.BehaviorDelegate()];
     }
 
-    function next() as Void {
+    private function clockStep() as Number {
+        return (Time.now().value() / STEP_SECONDS) % STEPS;
+    }
+
+    function tick() as Void {
+        var step = clockStep();
+        if (step == _step) {
+            return;
+        }
         if (_menuShown) {
             WatchUi.popView(WatchUi.SLIDE_IMMEDIATE);
             _menuShown = false;
         }
-        _step = (_step + 1) % 9;
+        _step = step;
         apply();
         if (_step == 8) {
             var menu = new WatchUi.Menu2({:title => "Race"});
