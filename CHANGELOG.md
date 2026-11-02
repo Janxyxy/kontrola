@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.4.0
+- 61 watches: Forerunner 55-970, fēnix 5 Plus-8, epix, Enduro, MARQ, Instinct AMOLED
+- Circles, rings and gaps scale with the screen size
+- Fonts picked per watch (biggest that fits), labels placed from real font heights
+- Fix crash on watches without anti-aliasing (e.g. FR55)
+- `build.ps1 -All` / `-Device <id>`
+
 ## 0.3.1
 - Renamed the app to Kontrola (same app ID, so it updates in place on the watch)
 
