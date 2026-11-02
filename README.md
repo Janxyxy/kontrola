@@ -58,6 +58,7 @@ The only setup is the **number of controls** (no course is loaded, that keeps it
 - **On the watch**: open Kontrola, **hold UP** on the start screen → Settings → Controls,
   pick the number, then press START.
 - **In Garmin Connect**: device → Activities & Apps → Kontrola → Settings → Number of controls.
+  Only for apps installed from the Connect IQ Store, not sideloaded ones.
 
 It's remembered for the next race, so check it on the start screen ("14 controls" or
 "Controls not set").
