@@ -59,7 +59,8 @@ The only setup is the **number of controls** (no course is loaded, that keeps it
   pick the number, then press START.
 - **In Garmin Connect**: device → Activities & Apps → Kontrola → Settings → Number of controls.
 
-It's remembered for the next race, so check it on the start screen ("14 controls").
+It's remembered for the next race, so check it on the start screen ("14 controls" or
+"Controls not set").
 It drives the `7/14` count, the progress ring and the finish symbol. With 0 ("-", unknown)
 punches and splits are still recorded, just without the ring and the `/14`.
 It can't be changed once the timer runs (hold UP is then the race menu).
